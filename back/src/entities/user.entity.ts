@@ -9,28 +9,31 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar', length: 255, unique: true, nullable: false })
+  @Column({ type: 'varchar', length: 255, unique: true, nullable: true })
   email: string;
 
-  @Column({ type: 'varchar', length: 255, nullable: false })
+  @Column({ type: 'varchar', length: 255, nullable: true })
   password: string;
 
-  @Column({ type: 'varchar', length: 255, nullable: false })
+  @Column({ type: 'varchar', length: 255, nullable: true })
   firstName: string;
 
-  @Column({ type: 'varchar', length: 255, nullable: false })
+  @Column({ type: 'varchar', length: 255, nullable: true })
   lastName: string;
 
-  @Column({ type: 'varchar', length: 255, nullable: false })
+  @Column({ type: 'varchar', length: 255, nullable: true })
   country: string;
 
-  @Column({ type: 'varchar', length: 255, nullable: false })
+  @Column({ type: 'varchar', length: 255, nullable: true })
   avatar: string;
 
-  // @Column({ type: 'varchar', length: 255, nullable: false })
-  // phoneNumber: string;  // для миграции
+  @Column({ type: 'varchar', length: 255, nullable: true })
+  phoneNumber: string;
 
-  @Column({ type: 'varchar', length: 255, unique: true, nullable: false })
+  @Column({ type: 'varchar', length: 255, nullable: true })
+  pokemon: string;
+
+  @Column({ type: 'varchar', length: 255, unique: true, nullable: true })
   token: string;
 
   async generateToken() {
