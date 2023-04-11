@@ -9,23 +9,29 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
+  @Column({ type: 'varchar', length: 255, unique: true, nullable: false })
   email: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 255, nullable: false })
   password: string;
 
-  @Column()
-  displayName: string;
+  @Column({ type: 'varchar', length: 255, nullable: false })
+  firstName: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 255, nullable: false })
+  lastName: string;
+
+  @Column({ type: 'varchar', length: 255, nullable: false })
+  country: string;
+
+  @Column({ type: 'varchar', length: 255, nullable: false })
+  avatar: string;
+
+  // @Column({ type: 'varchar', length: 255, nullable: false })
+  // phoneNumber: string;  // для миграции
+
+  @Column({ type: 'varchar', length: 255, unique: true, nullable: false })
   token: string;
-
-  constructor(email: string, password: string, displayName: string) {
-    this.email = email;
-    this.password = password;
-    this.displayName = displayName;
-  }
 
   async generateToken() {
     this.token = crypto.randomUUID();
