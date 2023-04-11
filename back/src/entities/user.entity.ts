@@ -12,7 +12,7 @@ export class User {
   @Column({ type: 'varchar', length: 255, unique: true, nullable: false })
   email: string;
 
-  @Column({ type: 'varchar', length: 255, unique: true, nullable: false })
+  @Column({ type: 'varchar', length: 255, nullable: false })
   password: string;
 
   @Column({ type: 'varchar', length: 255, nullable: false })
@@ -32,24 +32,6 @@ export class User {
 
   @Column({ type: 'varchar', length: 255, unique: true, nullable: false })
   token: string;
-
-  constructor(
-    email: string,
-    password: string,
-    firstName: string,
-    lastName: string,
-    country: string,
-    avatar: string,
-    // phoneNumber: string,  // для миграции
-  ) {
-    this.email = email;
-    this.password = password;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.country = country;
-    this.avatar = avatar;
-    // this.phoneNumber = phoneNumber;  // для миграции
-  }
 
   async generateToken() {
     this.token = crypto.randomUUID();
