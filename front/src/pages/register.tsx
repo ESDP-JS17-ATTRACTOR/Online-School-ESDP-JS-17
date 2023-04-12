@@ -17,9 +17,8 @@ const Register = () => {
     const router = useRouter();
     const [btnLoading, setBtnLoading] = useState(true);
     const [state, setState] = useState<RegisterMutation>({
-        username: '',
-        displayName: '',
-        avatar: null,
+        email: '',
+        firstName: '',
         password: '',
     });
 
@@ -55,7 +54,7 @@ const Register = () => {
     };
 
     useEffect(() => {
-        if (state.username.length && state.displayName.length && state.avatar && state.password.length) {
+        if (state.email.length && state.firstName.length && state.password.length) {
             setBtnLoading(false);
         }
     }, [state]);
@@ -80,24 +79,24 @@ const Register = () => {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField
-                                label="Username"
-                                name="username"
-                                autoComplete="new-username"
-                                value={state.username}
+                                label="e-mail"
+                                name="email"
+                                autoComplete="new-email"
+                                value={state.email}
                                 onChange={inputChangeHandler}
-                                error={Boolean(getFieldError('username'))}
-                                helperText={getFieldError('username')}
+                                error={Boolean(getFieldError('email'))}
+                                helperText={getFieldError('email')}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
                                 label="Display name"
-                                name="displayName"
+                                name="firstName"
                                 autoComplete="new-displayName"
-                                value={state.displayName}
+                                value={state.firstName}
                                 onChange={inputChangeHandler}
-                                error={Boolean(getFieldError('displayName'))}
-                                helperText={getFieldError('displayName')}
+                                error={Boolean(getFieldError('firstName'))}
+                                helperText={getFieldError('firstName')}
                             />
                         </Grid>
                         <Grid item xs>
